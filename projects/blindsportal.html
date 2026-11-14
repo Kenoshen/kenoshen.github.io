@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BlindsPortal | Michael Wingfield</title>
+  <meta name="description" content="How we built BlindsPortal, a SaaS platform that runs blinds installation companies end to end and integrates directly with Home Depot.">
+  <meta property="og:title" content="BlindsPortal | Michael Wingfield">
+  <meta property="og:description" content="A SaaS platform for blinds installation companies: Go backend, desktop admin app, and iOS and Android installer apps.">
+  <meta property="og:image" content="https://kenoshen.github.io/assets/blindsportal/desktop-job-details.png">
+  <link rel="icon" href="../assets/blindsportal/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <style>
+    :root {
+      --bp-navy: #0f2f52;
+      --bp-blue: #1d63b0;
+      --bp-sky: #0ea5e9;
+      --bp-indigo: #5b5bd6;
+      --bp-green: #10b981;
+      --bp-pink: #ec4899;
+      --bp-amber: #f59e0b;
+      --hero-bg: linear-gradient(135deg, var(--bp-navy) 0%, var(--bp-blue) 55%, #38bdf8 100%);
+    }
+    .hero-desktop { max-width: 1040px; margin: 0 auto; padding: 0 20px 56px; }
+    .hero-desktop img { border-radius: 12px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.55); }
+    .quote {
+      margin: 0; padding: 28px 32px; border-radius: 16px;
+      background: var(--accent-soft); border: 1px solid var(--border);
+      font-size: 19px; line-height: 1.5;
+    }
+    .quote cite { display: block; margin-top: 10px; font-size: 14px; font-style: normal; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="../index.html">Michael Wingfield</a>
+      <ul>
+        <li><a href="../index.html#work">Work</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="case-hero">
+    <div class="wrap">
+      <a class="back" href="../index.html#work">← All work</a>
+      <div class="top">
+        <img class="app-icon" src="../assets/blindsportal/icon.png" alt="BlindsPortal app icon">
+        <div>
+          <h1>BlindsPortal</h1>
+          <p class="tagline">The operating system for blinds installation companies.</p>
+        </div>
+      </div>
+      <p class="intro">
+        Installation companies that do measure and install work for retailers like Home Depot used to
+        run on paper forms, phone calls, and spreadsheets. BlindsPortal replaces that with one
+        subscription platform. Jobs flow in from the retailer automatically, installers work them from
+        their phones, and the office handles scheduling, payroll, and billing from a desktop app. I
+        lead engineering on a small team that has run it in production since 2019.
+      </p>
+      <div class="store-row">
+        <a class="store-btn" href="https://apps.apple.com/us/app/blindsportal/id1464214548">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.77-3.32-1.8-1.41-.14-2.76.83-3.47.83-.72 0-1.82-.81-2.99-.79-1.54.02-2.96.9-3.75 2.27-1.6 2.78-.41 6.9 1.15 9.15.76 1.1 1.67 2.34 2.86 2.3 1.15-.05 1.58-.74 2.97-.74 1.38 0 1.77.74 2.98.72 1.23-.02 2.01-1.12 2.76-2.23.87-1.28 1.23-2.52 1.25-2.58-.03-.01-2.39-.92-2.4-3.66zM14.1 5.86c.63-.77 1.06-1.83.94-2.9-.91.04-2.02.61-2.67 1.37-.58.67-1.09 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.27z"/></svg>
+          App Store
+        </a>
+        <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.bytebreakstudios.blindsportal">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.8c-.3.3-.5.8-.5 1.4v17.6c0 .6.2 1.1.5 1.4l9.8-10.2L3.6 1.8zm10.9 11.3 2.8 2.9-11.5 6.6c-.5.3-1 .3-1.4.1l10.1-9.6zm0-2.2L4.4 1.3c.4-.2.9-.2 1.4.1l11.5 6.6-2.8 2.9zm3.9-2 3.2 1.8c.9.5.9 1.9 0 2.4l-3.2 1.8-3-3 3-3z"/></svg>
+          Google Play
+        </a>
+        <a class="store-btn light" href="https://www.blindsportal.com">blindsportal.com →</a>
+      </div>
+      <ul class="facts">
+        <li><span>Type</span><strong>B2B SaaS, per-seat subscription</strong></li>
+        <li><span>Platforms</span><strong>Windows · macOS · iOS · Android</strong></li>
+        <li><span>Backend</span><strong>Go · GraphQL · MongoDB</strong></li>
+        <li><span>In production</span><strong>Since 2019</strong></li>
+        <li><span>Role</span><strong>Lead engineer, small team</strong></li>
+      </ul>
+    </div>
+    <div class="hero-desktop">
+      <img src="../assets/blindsportal/desktop-job-details.png" alt="BlindsPortal desktop admin app showing a job with client details, correspondence, notes, and linked jobs">
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap split">
+      <div>
+        <p class="eyebrow">The business problem</p>
+        <h2>Two systems that didn't talk to each other</h2>
+      </div>
+      <div>
+        <p>
+          A blinds installation company sits between a big retailer and the customer's living room.
+          The retailer sells the job and sends a purchase order. The installer company sends someone to
+          measure, reports back, waits for the order, schedules the install, collects a signature, and
+          files the completion paperwork. Then it pays its installers.
+        </p>
+        <p>
+          <strong>Every step crossed a system boundary by hand:</strong> retyping POs, faxing measure
+          forms, chasing signatures, and reconciling payroll from paper. BlindsPortal's job was to close
+          those gaps without asking a retailer to change anything, and without asking installers who
+          avoid technology to learn much.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The product</p>
+      <h2>One platform, three apps</h2>
+      <p class="section-sub">An installer app for the field, a desktop app for the office, and a Go backend underneath both.</p>
+    </div>
+    <div class="gallery" tabindex="0" aria-label="Installer app screenshots">
+      <img src="../assets/blindsportal/phone-1.jpg" alt="Installer app: job details">
+      <img src="../assets/blindsportal/phone-2.jpg" alt="Installer app: window measurements entered on a phone">
+      <img src="../assets/blindsportal/phone-3.jpg" alt="Installer app: products and services on a job">
+      <img src="../assets/blindsportal/phone-4.jpg" alt="Installer app: calendar of appointments">
+      <img src="../assets/blindsportal/phone-5.jpg" alt="Installer app: dashboard of who has which job today">
+    </div>
+    <div class="wrap">
+      <div class="screens">
+        <figure>
+          <img src="../assets/blindsportal/desktop-payroll-overview.png" alt="Payroll screen with approval, unpaid, and recently paid lists" loading="lazy">
+          <figcaption><b>Payroll.</b> Installers submit their work, the office approves it, and pay is tracked through to paid.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/blindsportal/desktop-measures-admin.png" alt="Measures table in the desktop app" loading="lazy">
+          <figcaption><b>Measures.</b> Measurements from the field land in the office immediately, with no retyping.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/blindsportal/desktop-analytics.png" alt="Analytics page with installer revenue and compensation charts" loading="lazy">
+          <figcaption><b>Analytics.</b> Revenue, pay, and throughput per installer.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/blindsportal/desktop-blinds-portal-sign-ipad-1920x1707.png" alt="Customer signing a completion certificate on an iPad" loading="lazy">
+          <figcaption><b>Onsite signatures.</b> The customer signs the retailer's completion certificate on a tablet.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Engineering challenges</p>
+      <h2>What made it hard, and how we solved it</h2>
+      <p class="section-sub">BlindsPortal is a complete business system built by a team of a few engineers. These are the problems that shaped its design.</p>
+
+      <div class="challenges">
+        <article class="challenge" style="--c: var(--bp-blue)">
+          <div class="num">1</div>
+          <div>
+            <h3>Integrating with Home Depot and other retailers</h3>
+            <p>
+              Each retailer exposes its work differently, so the backend defines one Go <code>Plugin</code>
+              interface covering the whole job lifecycle: ingest new purchase orders, react when a job
+              is scheduled, completed, or archived, sync notes both ways, and upload measure forms,
+              waivers, and problem reports back to the retailer. The Home Depot plugin polls for new and
+              canceled POs, manages API tokens, and keeps each company's job list in step with Home
+              Depot's. Blinds.com and Costco plugins followed without any change to the core job model.
+            </p>
+            <p class="skill"><b>Skills:</b> third-party API integration, interface design, data synchronization, extensible architecture</p>
+            <ul class="tags"><li>Go interfaces</li><li>API token management</li><li>Polling ingest</li><li>Two-way sync</li></ul>
+          </div>
+        </article>
+
+        <article class="challenge" style="--c: var(--bp-indigo)">
+          <div class="num">2</div>
+          <div>
+            <h3>An event-driven core that keeps side effects out of the request path</h3>
+            <p>
+              Completing one job can trigger an SMS to the customer, an email, a payroll line, an
+              activity log entry, a document upload to Home Depot, and a notification to admins. The
+              backend runs an in-process event bus with more than 40 event types. Side-effect handlers subscribe to
+              the events they care about and run asynchronously, on a context detached from the HTTP
+              request, so a slow third-party call never blocks the user. The same bus drives scheduled
+              work: start-of-day reminders, payroll and timesheet cycles, billing runs, and checks for
+              stalled jobs.
+            </p>
+            <p class="skill"><b>Skills:</b> backend architecture, concurrency in Go, async processing, job scheduling</p>
+            <ul class="tags"><li>Goroutines &amp; channels</li><li>Pub/sub</li><li>Scheduled jobs</li><li>GraphQL (gqlgen)</li></ul>
+          </div>
+        </article>
+
+        <article class="challenge" style="--c: var(--bp-green)">
+          <div class="num">3</div>
+          <div>
+            <h3>A field app that works where the signal doesn't</h3>
+            <p>
+              Installers measure windows in basements and unfinished houses. The React Native app queues
+              every GraphQL mutation locally, applies it to the UI right away, and retries until the
+              server confirms it. Custom offline operations handle edits to nested lists such as a job's
+              measures and products, so work done without a connection merges correctly later. Fixes ship
+              to phones over the air through Expo, without waiting on app store review.
+            </p>
+            <p class="skill"><b>Skills:</b> mobile development, offline-first design, optimistic UI, release engineering</p>
+            <ul class="tags"><li>React Native</li><li>Apollo Client</li><li>Offline queue</li><li>Expo EAS updates</li></ul>
+          </div>
+        </article>
+
+        <article class="challenge" style="--c: var(--bp-pink)">
+          <div class="num">4</div>
+          <div>
+            <h3>Turning paper forms into data, and back into paper</h3>
+            <p>
+              Retailers still expect their own PDF forms: the measure and quote sheet, the customer
+              approval, and the certificate of completion. A separate Kotlin and Ktor service
+              fills the retailer's official fillable PDFs from structured job data, adding pages as a job's
+              measurements grow. Customers sign on the installer's phone or tablet, and the finished
+              document goes straight back to the retailer through the plugin.
+            </p>
+            <p class="skill"><b>Skills:</b> service decomposition, document generation, polyglot systems (Go and Kotlin)</p>
+            <ul class="tags"><li>Kotlin</li><li>Ktor</li><li>PDF form filling</li><li>E-signatures</li></ul>
+          </div>
+        </article>
+
+        <article class="challenge" style="--c: var(--bp-amber)">
+          <div class="num">5</div>
+          <div>
+            <h3>Running it as a business with a small team</h3>
+            <p>
+              BlindsPortal is multi-tenant: each installation company has its own configuration,
+              integrations, users, and teams. Billing is a per-seat Stripe subscription with automatic
+              retries. Customer messaging goes out through Twilio and Mailgun. GitHub Actions builds and
+              tests the Go server and deploys it as a Docker image. It also builds and signs the
+              Electron desktop app for Windows and macOS and pushes installer app updates, so a team of a few
+              people can ship to four platforms safely.
+            </p>
+            <p class="skill"><b>Skills:</b> SaaS architecture, multi-tenancy, payments, CI/CD, DevOps</p>
+            <ul class="tags"><li>Stripe</li><li>Twilio</li><li>Docker</li><li>AWS</li><li>GitHub Actions</li><li>Electron</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Architecture</p>
+      <h2>How the pieces fit</h2>
+      <p class="section-sub">Each part has one job, and all of them meet at a single GraphQL API.</p>
+      <div class="stack">
+        <div class="layer" style="--c: var(--bp-green)">
+          <h3>Installer app</h3>
+          <p>iOS and Android. Jobs, measures, signatures, and timesheets, with an offline queue.</p>
+          <ul class="tags"><li>React Native</li><li>Expo</li><li>Apollo</li></ul>
+        </div>
+        <div class="layer" style="--c: var(--bp-indigo)">
+          <h3>Admin desktop app</h3>
+          <p>Windows and macOS. Dashboard, calendar, payroll, analytics, and team management.</p>
+          <ul class="tags"><li>Electron</li><li>React</li><li>TypeScript</li></ul>
+        </div>
+        <div class="layer" style="--c: var(--bp-blue)">
+          <h3>Core API</h3>
+          <p>GraphQL server, event bus, retailer plugins, billing, and messaging.</p>
+          <ul class="tags"><li>Go</li><li>gqlgen</li><li>MongoDB</li><li>Stripe</li></ul>
+        </div>
+        <div class="layer" style="--c: var(--bp-pink)">
+          <h3>Document service</h3>
+          <p>Fills retailer PDF forms from job data.</p>
+          <ul class="tags"><li>Kotlin</li><li>Ktor</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">By the numbers</p>
+      <h2>A product with paying customers</h2>
+      <p class="section-sub">Figures from the codebase and the product site.</p>
+      <div class="stats">
+        <div class="stat" style="background: var(--bp-blue)"><div class="big">150k+</div><p>lines of code across Go, TypeScript, GraphQL, and Kotlin</p></div>
+        <div class="stat" style="background: var(--bp-indigo)"><div class="big">40+</div><p>event types driving the backend's side effects and schedules</p></div>
+        <div class="stat" style="background: var(--bp-green)"><div class="big">4</div><p>platforms shipped from one repo: Windows, macOS, iOS, Android</p></div>
+        <div class="stat" style="background: var(--bp-amber)"><div class="big">2019</div><p>first App Store release, with continuous production use since</p></div>
+      </div>
+      <blockquote class="quote" style="margin-top:32px">
+        A customer said BlindsPortal lets them complete 20 to 30 more jobs a month, and their installers can see their payroll as they work.
+        <cite>Customer testimonial, paraphrased from <a href="https://www.blindsportal.com">blindsportal.com</a></cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="next">
+    <div class="wrap">
+      <h2>See it for yourself</h2>
+      <p class="section-sub">The installer app includes a demo company you can try.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://www.blindsportal.com">Visit blindsportal.com</a>
+        <a class="btn" href="https://apps.apple.com/us/app/blindsportal/id1464214548">App Store</a>
+        <a class="btn" href="https://play.google.com/store/apps/details?id=com.bytebreakstudios.blindsportal">Google Play</a>
+        <a class="btn" href="../index.html#work">← Back to all work</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Michael Wingfield</footer>
+</body>
+</html>
