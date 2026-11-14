@@ -12,6 +12,7 @@
 
 - I founded BlindsPortal and have been its CEO and sole engineer since 2019. It is a multi-tenant B2B SaaS platform with paying customers, a Go and GraphQL backend, an Electron desktop app for Windows and macOS, and React Native apps for iOS and Android.
 - I wrote over 150,000 lines of Go, TypeScript, GraphQL, and Kotlin for BlindsPortal by hand. I counted them in November 2022, before ChatGPT launched.
+- I founded Prycebook and am its sole engineer. It is a price book and quoting SaaS for service companies, launched in 2026 and in public beta, built on Go, HTMX, Postgres, and ClickHouse and run on GCP with Terraform. I've made 517 commits to it since March 2026.
 - I designed, built, and released HiChore, an iPhone and iPad app with an offline-first sync engine and a Postgres backend that enforces its business rules in the database. It has 292 pgTAP assertions.
 - I am a ClickHouse Certified Developer. Credential: https://www.credly.com/badges/eae1c54c-b783-4ebc-b0ed-852e7042c36a/public_url
 
@@ -21,14 +22,16 @@
 - Backend and APIs: Go net/http, GraphQL (gqlgen), REST, OpenAPI, event-driven architecture, pub/sub, background and scheduled jobs, auth and sessions, multi-tenancy
 - Data: PostgreSQL (row-level security, triggers, advisory locks, pg_cron, pgTAP), ClickHouse, MongoDB, Supabase
 - Distributed systems: offline-first sync, outbox pattern, idempotency keys, retry with exponential backoff, eventual consistency, conflict resolution
+- Web: HTMX, Templ, server-rendered Go, Server-Sent Events, Content Security Policy
 - Apps: SwiftUI, React Native, Expo, React, Electron, Flutter, HTMX
-- Infrastructure: Docker, Terraform, AWS, GitHub Actions CI/CD, TestFlight and App Store release automation
+- Infrastructure: Docker, Terraform, GCP (Cloud Run, Cloud SQL), AWS, GitHub Actions CI/CD, TestFlight and App Store release automation
 - Integrations: Home Depot API, Stripe subscriptions, Twilio, Mailgun
 - Testing: pgTAP, XCTest, XCUITest
 
 ## Projects
 
 - [BlindsPortal case study](https://kenoshen.github.io/projects/blindsportal.html): B2B SaaS that runs blinds installation companies, from Home Depot purchase order to installer payroll. Go, GraphQL, MongoDB, React Native, Electron, Kotlin. In production since 2019. Role: founder, CEO, and sole engineer.
+- [Prycebook case study](https://kenoshen.github.io/projects/prycebook.html): Price book and quoting SaaS for HVAC, plumbing, electrical, and other service companies. Live at https://prycebook.com. Go, Templ, HTMX, Postgres, ClickHouse, GCP Cloud Run, Terraform. Plans from $10 to $199 a month. Role: founder and sole engineer.
 - [HiChore case study](https://kenoshen.github.io/projects/hichore.html): Family chore chart for iPhone and iPad, released November 2026. SwiftUI, Postgres, Supabase, offline sync. Role: solo design, code, and release.
 
 ## BlindsPortal details
@@ -40,6 +43,15 @@
 - Operations. Per-seat Stripe billing, Twilio and Mailgun messaging, Docker deploys, and GitHub Actions pipelines that build, sign, and ship to Windows, macOS, iOS, and Android.
 - Go to market. I sold it myself, including a booth at the International Window Coverings Expo (IWCE) 2023 in Charlotte, with press releases for a Lowe's integration and offline sync.
 - Customer result: "We complete at least 20-30 more jobs a month, and best of all, our installers absolutely love it." Robin and Larry, co-owners of L.E.C. Enterprises, Inc.
+
+## Prycebook details
+
+- Pricing model. Items carry Good, Better, and Best tiers, cost and price per tier, custom units, and bundles of other items. Quotes add discounts, fees, optional and hidden lines, and show margin against a target. The domain model comes from pricey, an open-source Go library I wrote: https://github.com/Kenoshen/pricey
+- Multi-tenant security. One middleware chain handles recovery, security headers, rate limiting, CSRF, authentication, tenant resolution, and subscription checks. Argon2id passwords, revocable Postgres-backed sessions, four roles, organization-scoped queries, audit-logged support sign-ins, and a same-origin-only Content Security Policy.
+- ClickHouse analytics. Batched product events feed materialized views into AggregatingMergeTree tables that power a customer Insights page and my funnel dashboards. Request and query telemetry lives in separate tables with a 30-day TTL. Dashboards update over Server-Sent Events with no polling.
+- Billing as code. Plans are defined in YAML and synced to Stripe from CI. Stripe webhooks drive subscription state. The app schedules and logs lifecycle email for onboarding, trials, failed payments, and expiring free periods.
+- Infrastructure. Terraform manages Cloud Run, Cloud SQL, a ClickHouse VM, Gotenberg, and secrets on GCP. Every dependency is vendored or pinned, including Docker images by digest and GitHub Actions by commit SHA. Backups use Cloud SQL point-in-time recovery plus hourly pg_dump snapshots in another region, written by an account that can't delete them.
+- Testing. 259 Go test files and 66 Postgres migrations, plus a separate ClickHouse migration set.
 
 ## HiChore details
 
