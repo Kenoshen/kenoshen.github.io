@@ -4,62 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Michael Wingfield | Senior Software Developer</title>
-  <meta name="description" content="Michael Wingfield, a Colorado-based senior software developer who builds backend systems in Go. ClickHouse Certified Developer.">
+  <meta name="description" content="Michael Wingfield is a Colorado-based senior software developer who builds backend systems and the apps on top of them. ClickHouse Certified Developer.">
   <meta property="og:title" content="Michael Wingfield | Senior Software Developer">
-  <meta property="og:description" content="Backend systems in Go, Postgres, and ClickHouse.">
+  <meta property="og:description" content="Backend systems and the apps on top of them.">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/1054265?v=4">
   <link rel="icon" href="https://avatars.githubusercontent.com/u/1054265?s=64&v=4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
   <style>
-    :root {
-      --bg: #f7f7f5;
-      --surface: #ffffff;
-      --text: #1a1a1a;
-      --muted: #5c5c5c;
-      --border: #e4e4e0;
-      --accent: #00758f;
-      --accent-soft: #e2f3f6;
-      --tag-bg: #f0f0ec;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #0f1113;
-        --surface: #171a1d;
-        --text: #e8e8e6;
-        --muted: #9a9a96;
-        --border: #262a2e;
-        --accent: #4fc3dc;
-        --accent-soft: #12303a;
-        --tag-bg: #1f2327;
-      }
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font: 16px/1.6 Inter, system-ui, -apple-system, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
-
-    nav {
-      position: sticky; top: 0; z-index: 10;
-      background: color-mix(in srgb, var(--bg) 85%, transparent);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border);
-    }
-    nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 56px; }
-    nav .brand { font-weight: 600; color: var(--text); }
-    nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
-    nav ul a { color: var(--muted); }
-    nav ul a:hover { color: var(--text); text-decoration: none; }
-
     header.hero { padding: 80px 0 64px; }
     .hero-grid { display: flex; gap: 40px; align-items: center; }
     .hero img {
@@ -67,70 +21,26 @@
       border: 3px solid var(--surface); box-shadow: 0 0 0 1px var(--border);
       flex-shrink: 0;
     }
-    .eyebrow { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--accent); margin: 0 0 8px; }
-    h1 { font-size: clamp(32px, 6vw, 48px); line-height: 1.1; margin: 0 0 16px; letter-spacing: -0.02em; }
-    .lead { font-size: 18px; color: var(--muted); max-width: 560px; margin: 0 0 24px; }
-    .cta { display: flex; flex-wrap: wrap; gap: 12px; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 10px 18px; border-radius: 8px; font-weight: 500; font-size: 15px;
-      border: 1px solid var(--border); color: var(--text); background: var(--surface);
-    }
-    .btn:hover { text-decoration: none; border-color: var(--accent); }
-    .btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
-    @media (prefers-color-scheme: dark) { .btn.primary { color: #0f1113; } }
-    .btn svg { width: 18px; height: 18px; fill: currentColor; }
+    .lead { font-size: 18px; color: var(--muted); max-width: 580px; margin: 0 0 24px; }
 
-    section { padding: 56px 0; border-top: 1px solid var(--border); }
-    h2 { font-size: 24px; margin: 0 0 8px; letter-spacing: -0.01em; }
-    .section-sub { color: var(--muted); margin: 0 0 32px; }
+    .work-list { display: grid; gap: 28px; }
 
     .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
     .skill-group { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
     .skill-group h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 12px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
-    .tags li { font-family: "JetBrains Mono", monospace; font-size: 12px; background: var(--tag-bg); padding: 3px 8px; border-radius: 4px; }
 
     .cert {
       display: flex; gap: 20px; align-items: center;
       background: var(--accent-soft); border: 1px solid var(--border); border-radius: 12px; padding: 24px;
     }
-    .cert-badge {
-      width: 64px; height: 64px; border-radius: 12px; flex-shrink: 0;
-      background: #faff69; display: grid; place-items: center;
-    }
+    .cert-badge { width: 64px; height: 64px; border-radius: 12px; flex-shrink: 0; background: #faff69; display: grid; place-items: center; }
     .cert-badge svg { width: 36px; height: 36px; }
     .cert h3 { margin: 0 0 4px; font-size: 18px; }
     .cert p { margin: 0; color: var(--muted); }
 
-    .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
-    .card {
-      display: flex; flex-direction: column;
-      background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px;
-      transition: border-color .15s, transform .15s;
-    }
-    .card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .card h3 { margin: 0 0 6px; font-size: 17px; display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
-    .card h3 a { color: var(--text); }
-    .card .kind { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--accent); white-space: nowrap; }
-    .card p { color: var(--muted); font-size: 14px; margin: 0 0 16px; flex-grow: 1; }
-    .card .links { display: flex; gap: 14px; font-size: 14px; margin-top: 12px; }
-    .featured { grid-column: 1 / -1; }
-    @media (min-width: 700px) {
-      .featured { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; }
-      .featured p { margin-bottom: 0; }
-    }
-    .featured ul.points { margin: 0; padding-left: 18px; color: var(--muted); font-size: 14px; }
-    .featured ul.points li { margin-bottom: 4px; }
-
-    .older { margin-top: 32px; }
-    .older summary { cursor: pointer; color: var(--muted); font-weight: 500; }
-    .older ul { columns: 2 240px; padding-left: 18px; margin: 16px 0 0; font-size: 14px; color: var(--muted); }
-    .older li { margin-bottom: 6px; break-inside: avoid; }
-
     .contact { text-align: center; }
     .contact .cta { justify-content: center; }
-    footer { padding: 32px 0; text-align: center; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
+    .contact .section-sub { margin-left: auto; margin-right: auto; }
 
     @media (max-width: 640px) {
       header.hero { padding: 48px 0 40px; }
@@ -147,8 +57,8 @@
     <div class="wrap">
       <a class="brand" href="#">Michael Wingfield</a>
       <ul>
+        <li><a href="#work">Work</a></li>
         <li class="hide-sm"><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -159,13 +69,14 @@
       <img src="https://avatars.githubusercontent.com/u/1054265?s=280&v=4" alt="Michael Wingfield">
       <div>
         <p class="eyebrow">Senior Software Developer · Colorado</p>
-        <h1>I build backend systems in Go.</h1>
+        <h1>I build backend systems, and the apps that run on them.</h1>
         <p class="lead">
-          I build services, libraries, and full-stack web apps on Go, Postgres, and ClickHouse,
-          and ship them in containers. I'm a ClickHouse Certified Developer and open to new roles.
+          Most of my work is in Go and Postgres: data models, sync, and services that stay correct
+          under real use. I also ship the apps on top, including an iOS app on the App Store.
+          I'm a ClickHouse Certified Developer and open to new roles.
         </p>
         <div class="cta">
-          <a class="btn primary" href="mailto:mwingfie@gmail.com">Get in touch</a>
+          <a class="btn primary" href="#work">See my work</a>
           <a class="btn" href="https://www.linkedin.com/in/michaelwingfield">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
             LinkedIn
@@ -179,10 +90,41 @@
     </div>
   </header>
 
+  <section id="work">
+    <div class="wrap">
+      <h2>Selected work</h2>
+      <p class="section-sub">Products I've designed, built, and shipped. Click one to see how it works.</p>
+
+      <div class="work-list">
+        <a class="showcase hichore" href="projects/hichore.html">
+          <svg class="sparkle" style="top:28px; right:46%; width:22px" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.7-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7z"/></svg>
+          <svg class="sparkle" style="bottom:34px; right:6%; width:16px" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2l2.9 6.6 7.1.7-5.4 4.7 1.6 7L12 17.3 5.8 21l1.6-7L2 9.3l7.1-.7z"/></svg>
+          <div>
+            <div class="badge-row">
+              <img class="app-icon" src="assets/hichore/icon.png" alt="">
+              <span class="kicker">iPhone &amp; iPad · On the App Store</span>
+            </div>
+            <h3>HiChore</h3>
+            <p>A family chore chart kids actually want to open. It syncs across every device in the house and keeps working offline.</p>
+            <ul class="pills">
+              <li>SwiftUI</li><li>Postgres</li><li>Supabase</li><li>Offline sync</li>
+            </ul>
+            <span class="go">See how it's built <span aria-hidden="true">→</span></span>
+          </div>
+          <div class="shots" aria-hidden="true">
+            <img src="assets/hichore/01-kid-picker.jpg" alt="" loading="lazy">
+            <img src="assets/hichore/02-kid-home.jpg" alt="" loading="lazy">
+            <img src="assets/hichore/03-reward-shop.jpg" alt="" loading="lazy">
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section id="skills">
     <div class="wrap">
       <h2>Skills</h2>
-      <p class="section-sub">Tools I use day to day, plus the ones I learned along the way.</p>
+      <p class="section-sub">Tools I use day to day.</p>
       <div class="skills">
         <div class="skill-group">
           <h3>Backend</h3>
@@ -190,15 +132,15 @@
         </div>
         <div class="skill-group">
           <h3>Data</h3>
-          <ul class="tags"><li>ClickHouse</li><li>PostgreSQL</li><li>pgx</li><li>Firebase</li><li>SQL</li></ul>
+          <ul class="tags"><li>ClickHouse</li><li>PostgreSQL</li><li>Row-level security</li><li>pgTAP</li><li>Supabase</li></ul>
+        </div>
+        <div class="skill-group">
+          <h3>Apps</h3>
+          <ul class="tags"><li>Swift</li><li>SwiftUI</li><li>HTMX</li><li>Flutter / Dart</li><li>JavaScript</li></ul>
         </div>
         <div class="skill-group">
           <h3>Infra &amp; tooling</h3>
-          <ul class="tags"><li>Docker</li><li>Compose</li><li>Terraform</li><li>GitHub Actions</li><li>Make</li><li>Neovim</li></ul>
-        </div>
-        <div class="skill-group">
-          <h3>Frontend &amp; other</h3>
-          <ul class="tags"><li>HTMX</li><li>html/template</li><li>JavaScript</li><li>Flutter / Dart</li><li>Java</li><li>Scala</li></ul>
+          <ul class="tags"><li>Docker</li><li>Terraform</li><li>GitHub Actions</li><li>TestFlight</li><li>Neovim</li></ul>
         </div>
       </div>
     </div>
@@ -217,85 +159,6 @@
           <p>Issued by ClickHouse, Inc. · <a href="https://www.credly.com/badges/eae1c54c-b783-4ebc-b0ed-852e7042c36a/public_url">View credential →</a></p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <div class="wrap">
-      <h2>Projects</h2>
-      <p class="section-sub">Recent work from <a href="https://github.com/Kenoshen">my GitHub</a>, mostly Go services and libraries.</p>
-
-      <div class="projects">
-        <article class="card featured">
-          <div>
-            <h3><a href="https://github.com/Kenoshen/vicomp">ViComp</a> <span class="kind">Go · HTMX · Postgres</span></h3>
-            <p>An invoicing system for clinicians who bill county victim's compensation programs. It tracks sessions, rolls them up into invoices, and renders PDFs.</p>
-            <div class="links"><a href="https://github.com/Kenoshen/vicomp">Source →</a></div>
-          </div>
-          <ul class="points">
-            <li>Server-rendered Go app with HTMX for live invoice previews</li>
-            <li>Invoiced sessions lock so they can't be billed twice</li>
-            <li>HTML-to-PDF rendering with Gotenberg</li>
-            <li>Versioned SQL migrations, raw SQL via pgx, fully containerized</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3><a href="https://github.com/Kenoshen/fatcal">FatCal</a> <span class="kind">Go · Web app</span></h3>
-          <p>A calendar-based weight tracker with auth, stats, and day-over-day deltas. Runs in Docker on Postgres and has unit-tested stats and calendar logic.</p>
-          <div class="links"><a href="https://fatcal.kenoshen.win/login">Live demo →</a><a href="https://github.com/Kenoshen/fatcal">Source</a></div>
-        </article>
-
-        <article class="card">
-          <h3><a href="https://github.com/Kenoshen/pricey">pricey</a> <span class="kind">Go · Library</span></h3>
-          <p>A pricebook and quote/invoice library with pluggable storage. Its Postgres and Firebase backends are checked against one shared contract test suite.</p>
-          <div class="links"><a href="https://github.com/Kenoshen/pricey">Source →</a></div>
-        </article>
-
-        <article class="card">
-          <h3><a href="https://github.com/Kenoshen/cali">cali</a> <span class="kind">Go · Library</span></h3>
-          <p>A scheduling calendar library that handles recurring events, validation, and a storage interface, with tests for each module.</p>
-          <div class="links"><a href="https://github.com/Kenoshen/cali">Source →</a></div>
-        </article>
-
-        <article class="card">
-          <h3><a href="https://github.com/Kenoshen/planning-poker">Planning Poker</a> <span class="kind">Go · Terraform</span></h3>
-          <p>A containerized planning poker app for agile estimation. Terraform provisions the infrastructure and GitHub Actions runs CI.</p>
-          <div class="links"><a href="https://github.com/Kenoshen/planning-poker">Source →</a></div>
-        </article>
-
-        <article class="card">
-          <h3><a href="https://github.com/Kenoshen/carpare">carpare</a> <span class="kind">Go · Web</span></h3>
-          <p>A web tool for comparing cars side by side on specs and price.</p>
-          <div class="links"><a href="https://github.com/Kenoshen/carpare">Source →</a></div>
-        </article>
-
-        <article class="card">
-          <h3><a href="https://github.com/Kenoshen/cover_letter_cli">cover_letter_cli</a> <span class="kind">Go · CLI</span></h3>
-          <p>A command-line tool that turns a few simple inputs into a formatted cover letter PDF.</p>
-          <div class="links"><a href="https://github.com/Kenoshen/cover_letter_cli">Source →</a></div>
-        </article>
-
-        <article class="card">
-          <h3><a href="https://github.com/Kenoshen/intellij-dark.nvim">intellij-dark.nvim</a> <span class="kind">Lua · Neovim</span></h3>
-          <p>A port of IntelliJ's dark theme to Neovim, built with Lush and installable through lazy.nvim.</p>
-          <div class="links"><a href="https://github.com/Kenoshen/intellij-dark.nvim">Source →</a></div>
-        </article>
-      </div>
-
-      <details class="older">
-        <summary>Older projects: games, Flutter, JavaScript</summary>
-        <ul>
-          <li><a href="https://github.com/Kenoshen/kabob-solver-go">kabob-solver-go</a>: puzzle solver in Go, with a <a href="https://github.com/Kenoshen/kabob-heaps">Haxe/Heaps</a> playable version</li>
-          <li><a href="https://github.com/Kenoshen/openapi-merge">openapi-merge</a>: Go port of an OpenAPI spec merger</li>
-          <li><a href="https://github.com/Kenoshen/family-budget">family-budget</a>: envelope budgeting app in Flutter</li>
-          <li><a href="https://github.com/Kenoshen/flutter-spreadsheet">flutter-spreadsheet</a>: spreadsheet widget for Flutter</li>
-          <li><a href="https://github.com/Kenoshen/rush-hour-scala">rush-hour-scala</a>: Rush Hour puzzle generator in Scala</li>
-          <li><a href="https://github.com/Kenoshen/animagic">animagic</a>: animation system for libGDX</li>
-          <li><a href="https://github.com/Kenoshen/smooshjs">smooshjs</a>: JS module bundler, plus a Grunt plugin</li>
-          <li><a href="https://github.com/Kenoshen/js13k2015">js13k 2015</a> and <a href="https://github.com/Kenoshen/LudumDare33">Ludum Dare 33</a> game jam entries</li>
-        </ul>
-      </details>
     </div>
   </section>
 
