@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prycebook | Michael Wingfield</title>
+  <meta name="description" content="How I built Prycebook, a price book and quoting SaaS for service companies, on Go, HTMX, Postgres, and ClickHouse.">
+  <meta property="og:title" content="Prycebook | Michael Wingfield">
+  <meta property="og:description" content="Price book and quoting SaaS for service companies: Go, HTMX, Postgres, ClickHouse, GCP.">
+  <meta property="og:image" content="https://kenoshen.github.io/assets/prycebook/og-image.png">
+  <link rel="icon" href="../assets/prycebook/icon-512.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/site.css">
+  <style>
+    :root {
+      --pb-indigo: #4f46e5;
+      --pb-deep: #312e81;
+      --pb-violet: #a855f7;
+      --pb-green: #059669;
+      --pb-amber: #f59e0b;
+      --pb-pink: #db2777;
+      --pb-teal: #0d9488;
+      --hero-bg: linear-gradient(135deg, var(--pb-deep) 0%, var(--pb-indigo) 50%, var(--pb-violet) 100%);
+    }
+    .hero-shot { max-width: 1040px; margin: 0 auto; padding: 0 20px 56px; }
+    .hero-shot img { border-radius: 14px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.55); }
+    .screens img { background: #f8fafc; }
+    .screens .tall { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+    .flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; counter-reset: step; margin: 0; padding: 0; list-style: none; }
+    .flow li {
+      counter-increment: step; position: relative;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      padding: 44px 18px 18px; font-size: 14px; color: var(--muted);
+    }
+    .flow li::before {
+      content: counter(step); position: absolute; top: 14px; left: 18px;
+      width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--pb-indigo); color: #fff; font-weight: 700; font-size: 13px;
+    }
+    .flow li b { display: block; color: var(--text); font-size: 15px; margin-bottom: 4px; }
+    .growth { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .growth a {
+      display: block; padding: 20px; border-radius: 14px; color: #fff;
+      transition: transform .15s ease;
+    }
+    .growth a:hover { text-decoration: none; transform: translateY(-2px); }
+    .growth a b { display: block; font-size: 17px; margin-bottom: 6px; }
+    .growth a span { font-size: 14px; opacity: .95; }
+    @media (max-width: 760px) {
+      .flow { grid-template-columns: 1fr 1fr; }
+      .screens .tall { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="wrap">
+      <a class="brand" href="../index.html">Michael Wingfield</a>
+      <ul>
+        <li><a href="../index.html#work">Work</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="case-hero">
+    <div class="wrap">
+      <a class="back" href="../index.html#work">← All work</a>
+      <div class="top">
+        <img class="app-icon" src="../assets/prycebook/icon-512.png" alt="Prycebook app icon">
+        <div>
+          <h1>Prycebook</h1>
+          <p class="tagline">Price books and quotes for service companies.</p>
+        </div>
+      </div>
+      <p class="intro">
+        HVAC, plumbing, and electrical shops often price the same job three different ways, depending on
+        who wrote the quote. Prycebook turns a company's services, parts, and labor into one price book.
+        A tech can build a branded quote in minutes and send it before leaving the driveway, and the
+        customer accepts it from their phone. I designed, built, and launched it by myself in 2026.
+      </p>
+      <div class="store-row">
+        <a class="store-btn" href="https://prycebook.com">Visit prycebook.com →</a>
+        <a class="store-btn light" href="https://prycebook.com/demo/quote">See a live demo quote</a>
+      </div>
+      <ul class="facts">
+        <li><span>Type</span><strong>B2B SaaS, four plans from $10 to $199/mo</strong></li>
+        <li><span>Stack</span><strong>Go · Templ · HTMX · Postgres</strong></li>
+        <li><span>Analytics</span><strong>ClickHouse</strong></li>
+        <li><span>Infra</span><strong>GCP Cloud Run · Terraform</strong></li>
+        <li><span>Role</span><strong>Founder &amp; sole engineer</strong></li>
+      </ul>
+    </div>
+    <div class="hero-shot">
+      <img src="../assets/prycebook/help-quote-builder.webp" alt="Prycebook quote builder with line items, unit prices, costs, and contact details">
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2>From price book to signed quote</h2>
+      <p class="section-sub">The whole product exists to make this loop fast and consistent.</p>
+      <ol class="flow">
+        <li><b>Build the price book</b>Start from a starter book for your trade, or import a spreadsheet.</li>
+        <li><b>Pick items</b>Search the book and add parts and labor to a quote in a few taps.</li>
+        <li><b>Send</b>The customer gets a branded PDF, an email, and a link.</li>
+        <li><b>Accept</b>The customer accepts from their phone, with no account, and you get notified.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">The product</p>
+      <h2>A closer look</h2>
+      <p class="section-sub">These screenshots are captured automatically from the running app by a Playwright script. A Go test fails the build if a help article references a screenshot that doesn't exist.</p>
+      <div class="screens">
+        <figure>
+          <img src="../assets/prycebook/email-pricebook.jpg" alt="IT services price book with categories, tags, and items" loading="lazy">
+          <figcaption><b>Price books.</b> Categories, tags, favorites, and a Completeness tab that flags items missing a price, cost, or description.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/prycebook/help-quote-picker.webp" alt="Item picker drawer for adding price book items to a quote" loading="lazy">
+          <figcaption><b>Quote picker.</b> Search every price book, stage several items, and add them in one step.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/prycebook/help-item-price-tiers.webp" alt="Good, Better, and Best price tiers on an item" loading="lazy">
+          <figcaption><b>Good / Better / Best.</b> Each item can carry price tiers with costs, so margin is visible on every line.</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/prycebook/email-dashboard.jpg" alt="Dashboard with counts, recent price books, recent quotes, and activity" loading="lazy">
+          <figcaption><b>Dashboard.</b> Recent quotes, price books, and a live activity feed, including when a customer opens a quote.</figcaption>
+        </figure>
+        <div class="wide tall">
+          <figure>
+            <img src="../assets/prycebook/email-quote-pdf.jpg" alt="Branded PDF quote with line items, discount, and total" loading="lazy">
+            <figcaption><b>Branded PDF.</b> The company's logo, colors, and quote numbering, rendered to PDF.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/prycebook/email-public-quote-phone.jpg" alt="Public quote page as a customer sees it on a phone" loading="lazy">
+            <figcaption><b>The customer's view.</b> A shareable link that works on any phone. One tap to accept, no sign-up.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Engineering challenges</p>
+      <h2>What made it hard, and how I solved it</h2>
+      <p class="section-sub">Prycebook is a full SaaS business run by one person. These are the problems that shaped its design.</p>
+
+      <div class="challenges">
+        <article class="challenge" style="--c: var(--pb-indigo)">
+          <div class="num">1</div>
+          <div>
+            <h3>A pricing model that matches how trades actually price</h3>
+            <p>
+              Real price books are messy. One item can have Good, Better, and Best tiers, a cost and a
+              price per tier, and units like "per endpoint per month". It can also bundle other items, so
+              a water heater install expands into the heater, the parts, and the labor. Quotes then add
+              discounts, fees, optional lines, and lines hidden from the customer, and they show margin
+              against the company's target. The core domain model comes from
+              <a href="https://github.com/Kenoshen/pricey">pricey</a>, an open-source Go library I wrote
+              for price books and quotes, which Prycebook builds on.
+            </p>
+            <p class="skill"><b>Skills:</b> domain modeling, library design, relational data modeling</p>
+            <ul class="tags"><li>Go</li><li>PostgreSQL</li><li>pgx</li><li>66 goose migrations</li></ul>
+          </div>
+        </article>
+
+        <article class="challenge" style="--c: var(--pb-pink)">
+          <div class="num">2</div>
+          <div>
+            <h3>Multi-tenant security, designed in from day one</h3>
+            <p>
+              Every request goes through one middleware chain: recovery, security headers, rate
+              limiting, and CSRF, then authentication, tenant resolution, and a subscription check.
+              Passwords are hashed with Argon2id. Sessions live in Postgres so they can be revoked, and
+              CSRF tokens are bound to the session. Four roles (Owner, Admin, Member, Viewer) gate every
+              action, and every query is scoped to the caller's organization. When I sign in as a
+              customer to help with support, it's recorded in an audit log. The Content Security Policy
+              allows scripts only from the app's own origin.
+            </p>
+            <p class="skill"><b>Skills:</b> application security, auth design, multi-tenancy, RBAC</p>
+            <ul class="tags"><li>Argon2id</li><li>CSRF</li><li>RBAC</li><li>Strict CSP</li><li>Audit log</li></ul>
+          </div>
+        </article>
+
+        <article class="challenge" style="--c: var(--pb-teal)">
+          <div class="num">3</div>
+          <div>
+            <h3>Product analytics on ClickHouse</h3>
+            <p>
+              Product events such as sign-ins, quotes sent, and onboarding steps are written to ClickHouse
+              in batches. Materialized views roll each insert up into <code>AggregatingMergeTree</code>
+              tables as it lands. These power the customer-facing Insights page and my own signup,
+              onboarding, and marketing funnel dashboards. Operational telemetry (every
+              HTTP request and SQL query) goes into separate tables with a 30-day TTL. My internal
+              dashboards update over Server-Sent Events only when the data underneath them changes,
+              with no polling.
+            </p>
+            <p class="skill"><b>Skills:</b> analytical databases, data modeling for OLAP, observability, real-time UI</p>
+            <ul class="tags"><li>ClickHouse</li><li>Materialized views</li><li>TTL</li><li>Server-Sent Events</li></ul>
+          </div>
+        </article>
+
+        <article class="challenge" style="--c: var(--pb-amber)">
+          <div class="num">4</div>
+          <div>
+            <h3>Billing and customer lifecycle as code</h3>
+            <p>
+              Plans are defined in YAML and synced to Stripe by a command that also runs in CI, so
+              prices never drift between environments. Stripe webhooks drive each subscription's state.
+              A Terraform variable turns the beta "Pro free for a year" offer on and off. The app sends
+              the whole lifecycle of email: onboarding, a trial drip held until setup starts, nudges for
+              abandoned onboarding, payment failures, and warnings 30 and 7 days before a free period
+              ends. Every one is scheduled and logged.
+            </p>
+            <p class="skill"><b>Skills:</b> payments integration, event-driven systems, lifecycle automation</p>
+            <ul class="tags"><li>Stripe</li><li>Webhooks</li><li>Scheduled email</li><li>Feature flags via Terraform</li></ul>
+          </div>
+        </article>
+
+        <article class="challenge" style="--c: var(--pb-green)">
+          <div class="num">5</div>
+          <div>
+            <h3>Infrastructure locked down end to end</h3>
+            <p>
+              Terraform manages everything on GCP: Cloud Run, Cloud SQL, a ClickHouse VM, Gotenberg for
+              PDFs, and secrets. Every dependency is vendored or pinned. That covers Go modules, front-end
+              assets, Docker images by digest, GitHub Actions by commit SHA, and even the Tailwind binary,
+              so a build needs no network and nothing changes without a commit. Backups come in two layers:
+              Cloud SQL's point-in-time recovery, plus hourly <code>pg_dump</code> snapshots in a bucket
+              outside the database's region. They're written by a service account that can't delete them.
+            </p>
+            <p class="skill"><b>Skills:</b> infrastructure as code, supply-chain security, disaster recovery, CI/CD</p>
+            <ul class="tags"><li>Terraform</li><li>Cloud Run</li><li>Cloud SQL</li><li>Docker</li><li>GitHub Actions</li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Growth engineering</p>
+      <h2>Building the funnel, not just the product</h2>
+      <p class="section-sub">
+        Prycebook has to find its own customers, so I built the marketing site into the app. Every page
+        is indexed, carries schema markup, and feeds campaign attribution into the ClickHouse funnel.
+      </p>
+      <div class="growth">
+        <a href="https://prycebook.com/tools" style="background: var(--pb-indigo)"><b>Free tools →</b><span>Markup and margin, break-even rate, job profit, and truck cost calculators</span></a>
+        <a href="https://prycebook.com/guides" style="background: var(--pb-pink)"><b>Pricing guides →</b><span>Flat rate vs. time and materials, plus how to price common jobs</span></a>
+        <a href="https://prycebook.com/for/plumbing" style="background: var(--pb-teal)"><b>Trade pages →</b><span>A landing page and starter price book for each trade, from HVAC to auto body</span></a>
+        <a href="https://prycebook.com/demo/quote" style="background: var(--pb-amber)"><b>Demo quote →</b><span>A real public quote, so prospects see what their customers will see</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">By the numbers</p>
+      <h2>One developer, a full SaaS stack</h2>
+      <p class="section-sub">Figures from the codebase.</p>
+      <div class="stats">
+        <div class="stat" style="background: var(--pb-indigo)"><div class="big">517</div><p>commits, all mine, since March 2026</p></div>
+        <div class="stat" style="background: var(--pb-pink)"><div class="big">259</div><p>Go test files across handlers, auth, analytics, and billing</p></div>
+        <div class="stat" style="background: var(--pb-teal)"><div class="big">66</div><p>Postgres migrations, plus a separate ClickHouse migration set</p></div>
+        <div class="stat" style="background: var(--pb-amber)"><div class="big">0</div><p>third-party scripts, styles, or fonts in the browser: every asset is served by the app</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="next">
+    <div class="wrap">
+      <h2>Try it yourself</h2>
+      <p class="section-sub">Every plan starts with a 14-day free trial, and no card is needed to sign up.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://prycebook.com">Visit prycebook.com</a>
+        <a class="btn" href="https://prycebook.com/demo/quote">Demo quote</a>
+        <a class="btn" href="https://github.com/Kenoshen/pricey">pricey on GitHub</a>
+        <a class="btn" href="../index.html#work">← Back to all work</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Michael Wingfield</footer>
+</body>
+</html>

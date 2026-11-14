@@ -110,6 +110,9 @@ footer { padding: 32px 0; text-align: center; color: var(--muted); font-size: 13
 
 .showcase.hichore { background: linear-gradient(135deg, #14b8a6 0%, #2f8fe0 50%, #8b5cf6 100%); }
 .showcase.blindsportal { background: linear-gradient(135deg, #0f2f52 0%, #1d63b0 55%, #38bdf8 100%); }
+.showcase.prycebook { background: linear-gradient(135deg, #312e81 0%, #4f46e5 50%, #a855f7 100%); }
+.showcase .shots.devices.two img:nth-child(2) { width: 150px; transform: translate(30%, -22%) rotate(4deg); }
+.showcase:hover .shots.devices.two img:nth-child(2) { transform: translate(40%, -24%) rotate(6deg); }
 
 /* Desktop + phone composition for SaaS tiles */
 .showcase .shots.devices img { width: auto; border-radius: 10px; }
