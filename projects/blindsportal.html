@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BlindsPortal | Michael Wingfield</title>
-  <meta name="description" content="How we built BlindsPortal, a SaaS platform that runs blinds installation companies end to end and integrates directly with Home Depot.">
+  <meta name="description" content="How I built BlindsPortal, a SaaS platform that runs blinds installation companies end to end and integrates directly with Home Depot.">
   <meta property="og:title" content="BlindsPortal | Michael Wingfield">
   <meta property="og:description" content="A SaaS platform for blinds installation companies: Go backend, desktop admin app, and iOS and Android installer apps.">
   <meta property="og:image" content="https://kenoshen.github.io/assets/blindsportal/desktop-job-details.png">
@@ -60,7 +60,7 @@
         run on paper forms, phone calls, and spreadsheets. BlindsPortal replaces that with one
         subscription platform. Jobs flow in from the retailer automatically, installers work them from
         their phones, and the office handles scheduling, payroll, and billing from a desktop app. I
-        lead engineering on a small team that has run it in production since 2019.
+        designed and built every part of it, and I've run it in production since 2019.
       </p>
       <div class="store-row">
         <a class="store-btn" href="https://apps.apple.com/us/app/blindsportal/id1464214548">
@@ -78,7 +78,7 @@
         <li><span>Platforms</span><strong>Windows · macOS · iOS · Android</strong></li>
         <li><span>Backend</span><strong>Go · GraphQL · MongoDB</strong></li>
         <li><span>In production</span><strong>Since 2019</strong></li>
-        <li><span>Role</span><strong>Lead engineer, small team</strong></li>
+        <li><span>Role</span><strong>Creator &amp; sole engineer</strong></li>
       </ul>
     </div>
     <div class="hero-desktop">
@@ -147,8 +147,8 @@
   <section>
     <div class="wrap">
       <p class="eyebrow">Engineering challenges</p>
-      <h2>What made it hard, and how we solved it</h2>
-      <p class="section-sub">BlindsPortal is a complete business system built by a team of a few engineers. These are the problems that shaped its design.</p>
+      <h2>What made it hard, and how I solved it</h2>
+      <p class="section-sub">I built BlindsPortal as a complete business system on my own. These are the problems that shaped its design.</p>
 
       <div class="challenges">
         <article class="challenge" style="--c: var(--bp-blue)">
@@ -156,7 +156,7 @@
           <div>
             <h3>Integrating with Home Depot and other retailers</h3>
             <p>
-              Each retailer exposes its work differently, so the backend defines one Go <code>Plugin</code>
+              Each retailer exposes its work differently, so I defined one Go <code>Plugin</code>
               interface covering the whole job lifecycle: ingest new purchase orders, react when a job
               is scheduled, completed, or archived, sync notes both ways, and upload measure forms,
               waivers, and problem reports back to the retailer. The Home Depot plugin polls for new and
@@ -174,8 +174,8 @@
             <h3>An event-driven core that keeps side effects out of the request path</h3>
             <p>
               Completing one job can trigger an SMS to the customer, an email, a payroll line, an
-              activity log entry, a document upload to Home Depot, and a notification to admins. The
-              backend runs an in-process event bus with more than 40 event types. Side-effect handlers subscribe to
+              activity log entry, a document upload to Home Depot, and a notification to admins. I
+              built an in-process event bus with more than 40 event types. Side-effect handlers subscribe to
               the events they care about and run asynchronously, on a context detached from the HTTP
               request, so a slow third-party call never blocks the user. The same bus drives scheduled
               work: start-of-day reminders, payroll and timesheet cycles, billing runs, and checks for
@@ -191,10 +191,10 @@
           <div>
             <h3>A field app that works where the signal doesn't</h3>
             <p>
-              Installers measure windows in basements and unfinished houses. The React Native app queues
-              every GraphQL mutation locally, applies it to the UI right away, and retries until the
-              server confirms it. Custom offline operations handle edits to nested lists such as a job's
-              measures and products, so work done without a connection merges correctly later. Fixes ship
+              Installers measure windows in basements and unfinished houses. I built the React Native app to queue
+              every GraphQL mutation locally, apply it to the UI right away, and retry until the
+              server confirms it. Offline operations I wrote handle edits to nested lists such as a job's
+              measures and products, so work done without a connection merges correctly later. I ship fixes
               to phones over the air through Expo, without waiting on app store review.
             </p>
             <p class="skill"><b>Skills:</b> mobile development, offline-first design, optimistic UI, release engineering</p>
@@ -208,8 +208,8 @@
             <h3>Turning paper forms into data, and back into paper</h3>
             <p>
               Retailers still expect their own PDF forms: the measure and quote sheet, the customer
-              approval, and the certificate of completion. A separate Kotlin and Ktor service
-              fills the retailer's official fillable PDFs from structured job data, adding pages as a job's
+              approval, and the certificate of completion. I built a separate Kotlin and Ktor
+              service that fills the retailer's official fillable PDFs from structured job data, adding pages as a job's
               measurements grow. Customers sign on the installer's phone or tablet, and the finished
               document goes straight back to the retailer through the plugin.
             </p>
@@ -221,14 +221,14 @@
         <article class="challenge" style="--c: var(--bp-amber)">
           <div class="num">5</div>
           <div>
-            <h3>Running it as a business with a small team</h3>
+            <h3>Running it as a business, solo</h3>
             <p>
-              BlindsPortal is multi-tenant: each installation company has its own configuration,
+              I made BlindsPortal multi-tenant: each installation company has its own configuration,
               integrations, users, and teams. Billing is a per-seat Stripe subscription with automatic
-              retries. Customer messaging goes out through Twilio and Mailgun. GitHub Actions builds and
-              tests the Go server and deploys it as a Docker image. It also builds and signs the
-              Electron desktop app for Windows and macOS and pushes installer app updates, so a team of a few
-              people can ship to four platforms safely.
+              retries. Customer messaging goes out through Twilio and Mailgun. I set up GitHub Actions to
+              build and test the Go server and deploy it as a Docker image. It also builds and signs the
+              Electron desktop app for Windows and macOS and pushes installer app updates, so I can ship
+              to four platforms safely on my own.
             </p>
             <p class="skill"><b>Skills:</b> SaaS architecture, multi-tenancy, payments, CI/CD, DevOps</p>
             <ul class="tags"><li>Stripe</li><li>Twilio</li><li>Docker</li><li>AWS</li><li>GitHub Actions</li><li>Electron</li></ul>
