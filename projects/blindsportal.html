@@ -26,6 +26,14 @@
     }
     .hero-desktop { max-width: 1040px; margin: 0 auto; padding: 0 20px 56px; }
     .hero-desktop img { border-radius: 12px; box-shadow: 0 30px 60px -20px rgba(0,0,0,.55); }
+    .handmade {
+      display: flex; gap: 12px; align-items: flex-start;
+      max-width: 680px; margin: 0 0 28px; padding: 14px 18px;
+      background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.35);
+      border-left: 4px solid #facc15; border-radius: 12px;
+      font-size: 16px;
+    }
+    .handmade strong { color: #fde68a; }
     .quote {
       margin: 0; padding: 28px 32px; border-radius: 16px;
       background: var(--accent-soft); border: 1px solid var(--border);
@@ -61,6 +69,11 @@
         subscription platform. Jobs flow in from the retailer automatically, installers work them from
         their phones, and the office handles scheduling, payroll, and billing from a desktop app. I
         designed and built every part of it, and I've run it in production since 2019.
+      </p>
+      <p class="handmade">
+        <span aria-hidden="true">✍️</span>
+        <span><strong>Built by one person, by hand, before AI.</strong> By November 2022, before ChatGPT
+        launched, I had written over 150,000 lines of Go, TypeScript, GraphQL, and Kotlin for it.</span>
       </p>
       <div class="store-row">
         <a class="store-btn" href="https://apps.apple.com/us/app/blindsportal/id1464214548">
@@ -274,7 +287,7 @@
       <h2>A product with paying customers</h2>
       <p class="section-sub">Figures from the codebase and the product site.</p>
       <div class="stats">
-        <div class="stat" style="background: var(--bp-blue)"><div class="big">150k+</div><p>lines of code across Go, TypeScript, GraphQL, and Kotlin</p></div>
+        <div class="stat" style="background: var(--bp-blue)"><div class="big">150k+</div><p>lines of code written by hand, counted in November 2022, before ChatGPT launched</p></div>
         <div class="stat" style="background: var(--bp-indigo)"><div class="big">40+</div><p>event types driving the backend's side effects and schedules</p></div>
         <div class="stat" style="background: var(--bp-green)"><div class="big">4</div><p>platforms shipped from one repo: Windows, macOS, iOS, Android</p></div>
         <div class="stat" style="background: var(--bp-amber)"><div class="big">2019</div><p>first App Store release, with continuous production use since</p></div>
