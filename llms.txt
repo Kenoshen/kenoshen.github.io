@@ -1,0 +1,50 @@
+# Michael Wingfield
+
+> Senior software developer in Colorado. I build backend systems in Go and Postgres, and I ship the desktop, iOS, and Android apps that run on them. ClickHouse Certified Developer. Open to senior backend and platform roles.
+
+- Email: mwingfie@gmail.com
+- LinkedIn: https://www.linkedin.com/in/michaelwingfield
+- GitHub: https://github.com/Kenoshen
+- Portfolio: https://kenoshen.github.io/
+- Location: Colorado, USA
+
+## Summary
+
+- I founded BlindsPortal and have been its CEO and sole engineer since 2019. It is a multi-tenant B2B SaaS platform with paying customers, a Go and GraphQL backend, an Electron desktop app for Windows and macOS, and React Native apps for iOS and Android.
+- I wrote over 150,000 lines of Go, TypeScript, GraphQL, and Kotlin for BlindsPortal by hand. I counted them in November 2022, before ChatGPT launched.
+- I designed, built, and released HiChore, an iPhone and iPad app with an offline-first sync engine and a Postgres backend that enforces its business rules in the database. It has 292 pgTAP assertions.
+- I am a ClickHouse Certified Developer. Credential: https://www.credly.com/badges/eae1c54c-b783-4ebc-b0ed-852e7042c36a/public_url
+
+## Skills
+
+- Languages: Go, SQL and PL/pgSQL, TypeScript, JavaScript, Swift, Kotlin, Dart
+- Backend and APIs: Go net/http, GraphQL (gqlgen), REST, OpenAPI, event-driven architecture, pub/sub, background and scheduled jobs, auth and sessions, multi-tenancy
+- Data: PostgreSQL (row-level security, triggers, advisory locks, pg_cron, pgTAP), ClickHouse, MongoDB, Supabase
+- Distributed systems: offline-first sync, outbox pattern, idempotency keys, retry with exponential backoff, eventual consistency, conflict resolution
+- Apps: SwiftUI, React Native, Expo, React, Electron, Flutter, HTMX
+- Infrastructure: Docker, Terraform, AWS, GitHub Actions CI/CD, TestFlight and App Store release automation
+- Integrations: Home Depot API, Stripe subscriptions, Twilio, Mailgun
+- Testing: pgTAP, XCTest, XCUITest
+
+## Projects
+
+- [BlindsPortal case study](https://kenoshen.github.io/projects/blindsportal.html): B2B SaaS that runs blinds installation companies, from Home Depot purchase order to installer payroll. Go, GraphQL, MongoDB, React Native, Electron, Kotlin. In production since 2019. Role: founder, CEO, and sole engineer.
+- [HiChore case study](https://kenoshen.github.io/projects/hichore.html): Family chore chart for iPhone and iPad, released November 2026. SwiftUI, Postgres, Supabase, offline sync. Role: solo design, code, and release.
+
+## BlindsPortal details
+
+- Retailer integrations. I wrote one Go plugin interface for the whole job lifecycle. The Home Depot plugin polls for new and canceled purchase orders, manages API tokens, syncs notes both ways, and uploads completed forms. Blinds.com and Costco plugins followed with no change to the core job model.
+- Event-driven core. An in-process event bus with more than 40 event types runs side effects (SMS, email, payroll lines, document uploads) asynchronously, off the HTTP request path. The same bus drives scheduled work such as reminders, payroll cycles, and billing runs.
+- Offline field app. The React Native app queues every GraphQL mutation locally, updates the UI right away, and retries until the server confirms. Fixes ship over the air through Expo.
+- Document service. A separate Kotlin and Ktor service fills retailers' official PDF forms from job data. Customers sign on a phone or tablet.
+- Operations. Per-seat Stripe billing, Twilio and Mailgun messaging, Docker deploys, and GitHub Actions pipelines that build, sign, and ship to Windows, macOS, iOS, and Android.
+- Go to market. I sold it myself, including a booth at the International Window Coverings Expo (IWCE) 2023 in Charlotte, with press releases for a Lowe's integration and offline sync.
+- Customer result: "We complete at least 20-30 more jobs a month, and best of all, our installers absolutely love it." Robin and Larry, co-owners of L.E.C. Enterprises, Inc.
+
+## HiChore details
+
+- Offline-first sync. Writes go into a persistent FIFO outbox keyed by client-generated UUIDs and replay in order with exponential backoff, so a retried write never double-counts. Realtime subscriptions push changes from other devices. Editable rows use last-write-wins on updated_at.
+- Auth without child accounts. Kid devices sign in anonymously and pair to a family with a 6-digit code that expires in 10 minutes. Row-level security checks family membership on every query, so revoking a device cuts access at once.
+- Database-enforced rules. Postgres triggers compute completion dates in the family's timezone, enforce per-day limits under an advisory lock, and move balances. Redeeming a reward locks the kid's row with SELECT ... FOR UPDATE. History is an append-only ledger.
+- Cost and privacy. Composite foreign keys on family_id isolate tenants. Nightly pg_cron jobs compact history older than 90 days. A load test put the worst-case family at about 2 MB.
+- Testing and release. 292 pgTAP assertions, XCTest and XCUITest suites, and scripts that generate App Store screenshots and upload builds to TestFlight.

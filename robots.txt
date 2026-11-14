@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kenoshen.github.io/sitemap.xml
