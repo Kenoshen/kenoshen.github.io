@@ -40,6 +40,28 @@
       font-size: 19px; line-height: 1.5;
     }
     .quote cite { display: block; margin-top: 10px; font-size: 14px; font-style: normal; color: var(--muted); }
+
+    .market-grid { display: grid; grid-template-columns: 5fr 6fr; gap: 32px; align-items: center; margin-bottom: 40px; }
+    .market-grid .booth { margin: 0; }
+    .market-grid .booth img { border-radius: 18px; box-shadow: 0 24px 50px -20px rgba(15,47,82,.55); }
+    .event-card {
+      display: grid; gap: 2px; padding: 22px 24px; border-radius: 16px; margin-bottom: 22px;
+      color: #fff; background: linear-gradient(135deg, var(--bp-indigo), var(--bp-pink));
+      font-size: 14px;
+    }
+    .event-card .event-name { font-size: 28px; font-weight: 700; letter-spacing: -0.01em; }
+    .market-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+    .market-points li { padding-left: 18px; border-left: 3px solid var(--bp-sky); color: var(--muted); }
+    .market-points b { color: var(--text); }
+    .collateral { display: grid; grid-template-columns: 1fr 1.3fr; gap: 24px; align-items: start; margin-bottom: 40px; }
+    .collateral figure { margin: 0; }
+    .collateral img { border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 16px 36px -18px rgba(0,0,0,.35); }
+    .collateral figcaption { font-size: 14px; color: var(--muted); margin-top: 10px; }
+    .collateral figcaption b { color: var(--text); }
+    .quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 760px) {
+      .market-grid, .collateral, .quotes { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -91,7 +113,7 @@
         <li><span>Platforms</span><strong>Windows · macOS · iOS · Android</strong></li>
         <li><span>Backend</span><strong>Go · GraphQL · MongoDB</strong></li>
         <li><span>In production</span><strong>Since 2019</strong></li>
-        <li><span>Role</span><strong>Creator &amp; sole engineer</strong></li>
+        <li><span>Role</span><strong>Founder, CEO &amp; sole engineer</strong></li>
       </ul>
     </div>
     <div class="hero-desktop">
@@ -292,10 +314,60 @@
         <div class="stat" style="background: var(--bp-green)"><div class="big">4</div><p>platforms shipped from one repo: Windows, macOS, iOS, Android</p></div>
         <div class="stat" style="background: var(--bp-amber)"><div class="big">2019</div><p>first App Store release, with continuous production use since</p></div>
       </div>
-      <blockquote class="quote" style="margin-top:32px">
-        A customer said BlindsPortal lets them complete 20 to 30 more jobs a month, and their installers can see their payroll as they work.
-        <cite>Customer testimonial, paraphrased from <a href="https://www.blindsportal.com">blindsportal.com</a></cite>
-      </blockquote>
+    </div>
+  </section>
+
+  <section class="market">
+    <div class="wrap">
+      <p class="eyebrow">Taking it to market</p>
+      <h2>From code to a booth on the expo floor</h2>
+      <p class="section-sub">
+        I wrote the software, and I also sold it. As founder and CEO, I took BlindsPortal to the
+        International Window Coverings Expo in 2023 to demo it to the industry in person.
+      </p>
+
+      <div class="market-grid">
+        <figure class="booth">
+          <img src="../assets/blindsportal/iwce_2023.jpg" alt="Michael Wingfield at the BlindsPortal booth at IWCE 2023, with the BlindsPortal banner and pull-up display" loading="lazy">
+        </figure>
+        <div class="market-copy">
+          <div class="event-card">
+            <span class="event-name">IWCE 2023</span>
+            <span>International Window Coverings Expo</span>
+            <span>Charlotte Convention Center · April 20–21, 2023 · Booth #343</span>
+          </div>
+          <ul class="market-points">
+            <li><b>Live demos</b> of the desktop and installer apps for installation companies, vendors, and attendees.</li>
+            <li><b>Two press releases</b> ahead of the show, announcing the Lowe's integration and offline sync for installers at job sites with no signal.</li>
+            <li><b>Launch materials</b> for the booth: a banner, a pull-up display, a product flyer, and a feature cheat sheet.</li>
+            <li><b>Expo-only pricing</b> to turn conversations into sign-ups on the spot.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="collateral">
+        <figure>
+          <img src="../assets/blindsportal/iwce-flyer.jpg" alt="BlindsPortal product flyer: Right the First Time" loading="lazy">
+          <figcaption><b>Product flyer.</b> It leads with the problem every installer knows: is that handwritten measurement a 4 or a 9?</figcaption>
+        </figure>
+        <figure>
+          <img src="../assets/blindsportal/iwce-feature-sheet.jpg" alt="BlindsPortal feature cheat sheet covering dashboard, calendar, jobs, vendors, payroll, and teams" loading="lazy">
+          <figcaption><b>Feature cheat sheet.</b> Every major area of the platform on one page, for walking a prospect through a demo.</figcaption>
+        </figure>
+      </div>
+
+      <div class="quotes">
+        <blockquote class="quote">
+          “Blinds Portal improved our business immensely… We complete at least 20-30 more jobs a month,
+          and best of all, our installers absolutely love it.”
+          <cite>Robin and Larry, co-owners of L.E.C. Enterprises, Inc.</cite>
+        </blockquote>
+        <blockquote class="quote">
+          “This CRM has transformed our dealings with Home Depot from being archaic, cumbersome, and
+          time-consuming to now having an efficient and simplified system to work through major issues.”
+          <cite>Linda, office manager at a blinds installation company in Colorado</cite>
+        </blockquote>
+      </div>
     </div>
   </section>
 
