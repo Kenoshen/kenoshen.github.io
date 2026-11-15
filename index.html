@@ -27,8 +27,16 @@
       "https://github.com/Kenoshen"
     ],
     "worksFor": [
+      { "@type": "Organization", "name": "Todyl", "url": "https://www.todyl.com" },
+      { "@type": "Organization", "name": "Byte Break Studios LLC" },
       { "@type": "Organization", "name": "BlindsPortal", "url": "https://www.blindsportal.com" },
       { "@type": "Organization", "name": "Prycebook", "url": "https://prycebook.com" }
+    ],
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University of Colorado Colorado Springs" },
+      { "@type": "Organization", "name": "Bitly" },
+      { "@type": "Organization", "name": "Dire Wolf Digital" },
+      { "@type": "Organization", "name": "Time Warner Cable" }
     ],
     "hasCredential": {
       "@type": "EducationalOccupationalCredential",
@@ -95,6 +103,7 @@
       <a class="brand" href="#">Michael Wingfield</a>
       <ul>
         <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li class="hide-sm"><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -195,6 +204,189 @@
           </div>
         </a>
       </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2>Experience</h2>
+      <p class="section-sub">I've been writing software professionally since 2011, in test automation, games, a product team lead role at Bitly, and now security software at Todyl. Since 2017 I've also run my own studio, where I built BlindsPortal.</p>
+
+      <ol class="timeline">
+        <li class="job" style="--c:#6366f1">
+          <div class="dot"></div>
+          <div class="job-card">
+            <div class="job-head">
+              <div>
+                <div class="logo"><img src="assets/logos/todyl-wordmark.png" alt="Todyl logo"></div>
+                <h3>Todyl</h3>
+                <p class="role">Senior Software Engineer</p>
+              </div>
+              <p class="when">Feb 2026 to present<br>Denver, CO</p>
+            </div>
+            <p class="about">Todyl gives managed service providers a single cybersecurity platform. I build the backend systems behind its analytics and its governance, risk, and compliance products.</p>
+            <div class="impact">
+              <div><b>Petabytes</b><span>of data analyzed by the ClickHouse reporting system I'm building</span></div>
+            </div>
+            <ul class="highlights">
+              <li><b>I'm building a high-performance analytics and reporting system on ClickHouse</b> that analyzes petabytes of data.</li>
+              <li><b>I built backend services for Todyl's compliance and cyber insurance products</b> in Go and gRPC. They help MSPs prove their clients' security posture to auditors and insurers.</li>
+              <li><b>I designed data models that several products share,</b> so new compliance features ship faster and customers' compliance records stay intact.</li>
+            </ul>
+            <div class="gained">
+              <span class="label">What I've added here</span>
+              <ul class="tags"><li>ClickHouse at scale</li><li>gRPC</li><li>Protocol Buffers</li><li>MySQL</li><li>Kubernetes</li><li>AWS</li><li>Observability</li><li>Security &amp; compliance</li></ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="job" style="--c:#0e9545">
+          <div class="dot"></div>
+          <div class="job-card">
+            <div class="job-head">
+              <div>
+                <div class="logo"><img src="assets/logos/bytebreak-wordmark.png" alt="Byte Break Studios logo"></div>
+                <h3>Byte Break Studios</h3>
+                <p class="role">Owner &amp; Software Developer</p>
+              </div>
+              <p class="when">Jan 2017 to present<br>Highlands Ranch, CO</p>
+            </div>
+            <p class="about">This is my own software company. I built BlindsPortal, Prycebook, and HiChore here, along with mobile and web apps for clients. I've run it since 2017, alongside my other jobs and on its own in the years between them.</p>
+            <div class="proj-links">
+              <a href="projects/blindsportal.html"><img src="assets/blindsportal/icon.png" alt="">BlindsPortal</a>
+              <a href="projects/prycebook.html"><img src="assets/prycebook/icon-512.png" alt="">Prycebook</a>
+              <a href="projects/hichore.html"><img src="assets/hichore/icon.png" alt="">HiChore</a>
+            </div>
+            <div class="impact">
+              <div><b>Since 2019</b><span>BlindsPortal has run installation companies' daily work in production</span></div>
+              <div><b>150k+ lines</b><span>of BlindsPortal code I wrote alone by November 2022</span></div>
+              <div><b>3 retailers</b><span>integrated so their orders flow straight into the platform: Home Depot, Blinds.com, and Costco</span></div>
+            </div>
+            <ul class="highlights">
+              <li><b>I designed and built a successful SaaS product.</b> BlindsPortal has a Go and GraphQL backend, a React Native app for installers, and an Electron app for the office. I also did the sales and support, and I ran a booth at IWCE 2023.</li>
+              <li><b>I made the architecture calls and lived with them.</b> Retailers connect through a plugin interface, and side effects go through an event bus. Because of that design, I could announce a fourth retailer, Lowe's, without rewriting the core.</li>
+              <li><b>I mentored junior engineers</b> and watched system health myself, so I could find bottlenecks before they turned into customer problems.</li>
+            </ul>
+            <div class="gained">
+              <span class="label">What I learned running my own company</span>
+              <ul class="tags"><li>Go</li><li>GraphQL</li><li>React Native</li><li>Electron</li><li>SwiftUI</li><li>Postgres</li><li>MongoDB</li><li>Stripe</li><li>Product &amp; sales</li></ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="job" style="--c:#ee6123">
+          <div class="dot"></div>
+          <div class="job-card">
+            <div class="job-head">
+              <div>
+                <div class="logo"><img src="assets/logos/bitly.jpg" alt="Bitly logo"></div>
+                <h3>Bitly</h3>
+                <p class="role">Senior Software Engineer</p>
+              </div>
+              <p class="when">Jul 2021 to Mar 2024<br>Denver, CO</p>
+            </div>
+            <p class="about">Bitly makes link shortening and QR Code software. QR Codes were one of the company's three flagship products, and I led the team that built them.</p>
+            <div class="impact">
+              <div><b>150%+</b><span>better performance and reliability in QR Code generation after my rework</span></div>
+              <div><b>1 of 3</b><span>flagship product teams at the company, and I was the lead</span></div>
+            </div>
+            <ul class="highlights">
+              <li><b>I led the QR Code product team.</b> I set the technical direction and mentored the team on QR Code generation and how to make it fast.</li>
+              <li><b>I designed the QR Code platform in Go and SQL</b> inside Bitly's large existing system, and worked with product and other teams so the platform met the requirements the business set for it.</li>
+              <li><b>I profiled and rebuilt QR Code generation and gained more than 150% in performance and reliability.</b> Every QR Code a customer creates or downloads runs through that code, so the improvement landed directly in a product people pay for.</li>
+            </ul>
+            <div class="gained">
+              <span class="label">What I sharpened here</span>
+              <ul class="tags"><li>Go</li><li>SQL</li><li>Performance profiling</li><li>Large-scale systems</li><li>Team leadership</li><li>Mentoring</li></ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="job" style="--c:#dc2626">
+          <div class="dot"></div>
+          <div class="job-card">
+            <div class="job-head">
+              <div>
+                <div class="logo"><img src="assets/logos/direwolf.webp" alt="Dire Wolf Digital logo"></div>
+                <h3>Dire Wolf Digital</h3>
+                <p class="role">Gameplay Engineer</p>
+              </div>
+              <p class="when">Jan 2017 to Sep 2017<br>Denver, CO</p>
+            </div>
+            <p class="about">Dire Wolf built the Pokémon Trading Card Game Online for The Pokémon Company International. Every expansion adds well over a hundred new cards, each with its own rules, and every one of them has to work on day one.</p>
+            <div class="impact">
+              <div><b>90%</b><span>less time to set up and run card interaction tests, thanks to my scripting language</span></div>
+              <div><b>30%</b><span>less code after I redesigned the database</span></div>
+              <div><b>2 sets</b><span>shipped as lead developer: the first two Sun &amp; Moon expansions</span></div>
+            </div>
+            <ul class="highlights">
+              <li><b>I designed a scripting language for testing card interactions.</b> Testing an interaction used to mean setting up the game state by hand. With a script, setup and run time dropped by up to 90%, which matters when each expansion adds over a hundred cards to test.</li>
+              <li><b>I was lead developer on the first two Sun &amp; Moon expansions.</b></li>
+              <li><b>I redesigned the game's database layer.</b> It now follows standard practice, and it took 30% less code.</li>
+            </ul>
+            <div class="gained">
+              <span class="label">What I learned</span>
+              <ul class="tags"><li>Language design</li><li>Test automation</li><li>Game rules engines</li><li>Database design</li></ul>
+            </div>
+          </div>
+        </li>
+
+        <li class="job compact" style="--c:#0ea5e9">
+          <div class="dot"></div>
+          <div class="job-card">
+            <div class="job-head">
+              <div>
+                <div class="logo"><img src="assets/logos/twc-wordmark.png" alt="Time Warner Cable logo"></div>
+                <h3>Time Warner Cable</h3>
+                <p class="role">Contractor, then Software Engineer, then Senior Software Engineer</p>
+              </div>
+              <p class="when">Jun 2012 to Sep 2016<br>Broomfield, CO</p>
+            </div>
+            <p class="about">In four years I went from contract test engineer to senior engineer. I owned test automation for Big Data projects and the REST services around them.</p>
+            <div class="impact">
+              <div><b>1 timeline</b><span>showing every Big Data event from a single device, which the integration team used to verify new devices</span></div>
+            </div>
+            <ul class="highlights">
+              <li><b>I built a testing harness that put all of a device's Big Data events on one timeline.</b> The team bringing those devices online used my timeline during initial testing to confirm each device's events at a glance, and it made their integration work much faster.</li>
+              <li>I wrote automated Java and TestNG tests for REST servers, including load tests and database validation.</li>
+              <li>I built JavaScript clients for the Big Data platform, plus other tools Dev, Dev-Test, and QA used to check the data pipeline.</li>
+              <li>I was the only person testing a new product that managed customer settings over REST and SQL and connected to many other TWC systems.</li>
+            </ul>
+            <ul class="tags"><li>Java</li><li>TestNG</li><li>JavaScript</li><li>REST</li><li>SQL</li><li>Load testing</li><li>Big Data</li></ul>
+          </div>
+        </li>
+
+        <li class="job compact" style="--c:#2563eb">
+          <div class="dot"></div>
+          <div class="job-card">
+            <div class="job-head">
+              <div>
+                <div class="logo"><img src="assets/logos/wildblue-wordmark.png" alt="WildBlue Communications logo"></div>
+                <h3>WildBlue Communications</h3>
+                <p class="role">Software Engineering Intern</p>
+              </div>
+              <p class="when">May 2011 to Jun 2012<br>Denver, CO</p>
+            </div>
+            <p class="about">WildBlue was a satellite internet provider, now part of Viasat. On a 15-person Scrum team I designed, reviewed, tested, and deployed internal web tools in Java, JavaScript, and Python that monitored and controlled the company's network.</p>
+            <ul class="tags"><li>Java</li><li>JavaScript</li><li>Python</li><li>Scrum</li></ul>
+          </div>
+        </li>
+
+        <li class="job compact" style="--c:#cfb87c">
+          <div class="dot"></div>
+          <div class="job-card">
+            <div class="job-head">
+              <div>
+                <div class="logo"><img src="assets/logos/uccs.jpg" alt="University of Colorado Colorado Springs logo"></div>
+                <h3>University of Colorado Colorado Springs</h3>
+                <p class="role">Bachelor of Innovation, Game Design &amp; Development</p>
+              </div>
+              <p class="when">2008 to 2012</p>
+            </div>
+            <p class="about">I minored in Creative Communication and made the President's List three times.</p>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
