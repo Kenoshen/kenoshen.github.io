@@ -1,6 +1,6 @@
 # Michael Wingfield
 
-> Senior software developer in Colorado. I build backend systems in Go and Postgres, and I ship the desktop, iOS, and Android apps that run on them. ClickHouse Certified Developer. Open to senior backend and platform roles.
+> Senior software developer in Colorado. I build backend systems in Go, and I ship the desktop, iOS, and Android apps that run on them. ClickHouse Certified Developer. Open to senior backend and platform roles.
 
 - Email: mwingfie@gmail.com
 - LinkedIn: https://www.linkedin.com/in/michaelwingfield
