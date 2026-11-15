@@ -7,7 +7,7 @@
   <meta name="description" content="Michael Wingfield is a Colorado-based senior software developer who builds backend systems and the apps on top of them. ClickHouse Certified Developer.">
   <meta property="og:title" content="Michael Wingfield | Senior Software Developer">
   <meta property="og:description" content="Backend systems and the apps on top of them.">
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/1054265?v=4">
+  <meta property="og:image" content="https://kenoshen.github.io/assets/headshot.jpg">
   <link rel="canonical" href="https://kenoshen.github.io/">
   <link rel="alternate" type="text/markdown" href="/llms.txt" title="Plain-text profile for AI agents">
   <link rel="icon" href="https://avatars.githubusercontent.com/u/1054265?s=64&v=4">
@@ -19,7 +19,7 @@
     "jobTitle": "Senior Software Developer",
     "description": "Senior software developer who builds backend systems in Go and ships the desktop, iOS, and Android apps that run on them. Founder and sole engineer of BlindsPortal, a B2B SaaS platform in production since 2019. Open to senior backend and platform roles.",
     "url": "https://kenoshen.github.io/",
-    "image": "https://avatars.githubusercontent.com/u/1054265?v=4",
+    "image": "https://kenoshen.github.io/assets/headshot.jpg",
     "email": "mailto:mwingfie@gmail.com",
     "address": { "@type": "PostalAddress", "addressRegion": "CO", "addressCountry": "US" },
     "sameAs": [
@@ -60,10 +60,10 @@
   <link rel="stylesheet" href="assets/css/site.css">
   <style>
     header.hero { padding: 80px 0 64px; }
-    .hero-grid { display: flex; gap: 40px; align-items: center; }
-    .hero img {
-      width: 140px; height: 140px; border-radius: 50%;
-      border: 3px solid var(--surface); box-shadow: 0 0 0 1px var(--border);
+    .hero-grid { display: flex; gap: 48px; align-items: center; }
+    .hero img.portrait {
+      order: 2; width: 280px; height: 350px; object-fit: cover; border-radius: 24px;
+      box-shadow: 0 0 0 1px var(--border), 0 20px 40px -16px rgba(0, 0, 0, .35);
       flex-shrink: 0;
     }
     .lead { font-size: 18px; color: var(--muted); max-width: 580px; margin: 0 0 24px; }
@@ -90,7 +90,7 @@
     @media (max-width: 640px) {
       header.hero { padding: 48px 0 40px; }
       .hero-grid { flex-direction: column; align-items: flex-start; gap: 24px; }
-      .hero img { width: 96px; height: 96px; }
+      .hero img.portrait { order: 0; width: 200px; height: 250px; border-radius: 20px; }
       nav ul { gap: 14px; }
       nav ul li.hide-sm { display: none; }
       .cert { flex-direction: column; align-items: flex-start; }
@@ -112,7 +112,7 @@
 
   <header class="hero">
     <div class="wrap hero-grid">
-      <img src="https://avatars.githubusercontent.com/u/1054265?s=280&v=4" alt="Michael Wingfield">
+      <img class="portrait" src="assets/headshot.jpg" alt="Michael Wingfield" width="280" height="350">
       <div>
         <p class="eyebrow">Senior Software Developer · Colorado</p>
         <h1>I build backend systems, and the apps that run on them.</h1>
