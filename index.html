@@ -212,8 +212,9 @@
       <h2>Experience</h2>
       <p class="section-sub">I've been writing software professionally since 2011, in test automation, games, a product team lead role at Bitly, and now security software at Todyl. Since 2017 I've also run my own studio, where I built BlindsPortal.</p>
 
+      <div class="exp-layout">
       <ol class="timeline">
-        <li class="job" style="--c:#6366f1">
+        <li class="job" style="--c:#6366f1" data-start="2026-02">
           <div class="dot"></div>
           <div class="job-card">
             <div class="job-head">
@@ -240,7 +241,7 @@
           </div>
         </li>
 
-        <li class="job" style="--c:#0e9545">
+        <li class="job" style="--c:#0e9545" data-start="2017-01">
           <div class="dot"></div>
           <div class="job-card">
             <div class="job-head">
@@ -274,7 +275,7 @@
           </div>
         </li>
 
-        <li class="job" style="--c:#ee6123">
+        <li class="job" style="--c:#ee6123" data-start="2021-07" data-end="2024-03">
           <div class="dot"></div>
           <div class="job-card">
             <div class="job-head">
@@ -302,7 +303,7 @@
           </div>
         </li>
 
-        <li class="job" style="--c:#dc2626">
+        <li class="job" style="--c:#dc2626" data-start="2017-01" data-end="2017-09">
           <div class="dot"></div>
           <div class="job-card">
             <div class="job-head">
@@ -331,7 +332,7 @@
           </div>
         </li>
 
-        <li class="job compact" style="--c:#0ea5e9">
+        <li class="job compact" style="--c:#0ea5e9" data-start="2012-06" data-end="2016-09">
           <div class="dot"></div>
           <div class="job-card">
             <div class="job-head">
@@ -356,7 +357,7 @@
           </div>
         </li>
 
-        <li class="job compact" style="--c:#2563eb">
+        <li class="job compact" style="--c:#2563eb" data-start="2011-05" data-end="2012-06">
           <div class="dot"></div>
           <div class="job-card">
             <div class="job-head">
@@ -372,7 +373,7 @@
           </div>
         </li>
 
-        <li class="job compact" style="--c:#cfb87c">
+        <li class="job compact" style="--c:#cfb87c" data-start="2008-08" data-end="2012-05">
           <div class="dot"></div>
           <div class="job-card">
             <div class="job-head">
@@ -387,6 +388,8 @@
           </div>
         </li>
       </ol>
+      <div class="tl-chart" aria-hidden="true"></div>
+      </div>
     </div>
   </section>
 
@@ -444,5 +447,62 @@
   </section>
 
   <footer>© 2026 Michael Wingfield</footer>
+  <script>
+    // Draws each job as a bar on a proportional time axis beside the experience list.
+    (() => {
+      const list = document.querySelector('.timeline');
+      const chart = document.querySelector('.tl-chart');
+      if (!list || !chart) return;
+
+      const toYears = (ym, endOfMonth) => {
+        const [y, m] = ym.split('-').map(Number);
+        return y + (m - 1 + (endOfMonth ? 1 : 0)) / 12;
+      };
+      const today = new Date();
+      const now = today.getFullYear() + (today.getMonth() + 1) / 12;
+
+      const items = [...list.querySelectorAll('.job[data-start]')].map(el => ({
+        el,
+        start: toYears(el.dataset.start),
+        end: el.dataset.end ? toYears(el.dataset.end, true) : now,
+        color: el.style.getPropertyValue('--c').trim(),
+        label: el.querySelector('h3').textContent + ' · ' + el.querySelector('.when').firstChild.textContent.trim(),
+      }));
+
+      const min = Math.floor(Math.min(...items.map(i => i.start)));
+      const pct = t => ((t - min) / (now - min)) * 100;
+
+      // Put overlapping jobs side by side: each job takes the first lane that's free when it starts.
+      const laneEnds = [];
+      [...items].sort((a, b) => a.start - b.start || a.end - b.end).forEach(it => {
+        let lane = laneEnds.findIndex(end => end <= it.start + 0.01);
+        if (lane === -1) lane = laneEnds.push(0) - 1;
+        laneEnds[lane] = it.end;
+        it.lane = lane;
+      });
+      chart.style.setProperty('--lanes', laneEnds.length);
+
+      for (let y = Math.ceil(min / 2) * 2; y <= now; y += 2) {
+        const tick = document.createElement('div');
+        tick.className = 'tl-tick';
+        tick.style.bottom = pct(y) + '%';
+        tick.textContent = y;
+        chart.appendChild(tick);
+      }
+
+      items.forEach(it => {
+        const bar = document.createElement('div');
+        bar.className = 'tl-bar' + (it.el.dataset.end ? '' : ' current');
+        bar.title = it.label;
+        bar.style.cssText = `--lane:${it.lane}; bottom:${pct(it.start)}%; height:calc(${pct(it.end) - pct(it.start)}% - 3px); color:${it.color}`;
+        bar.addEventListener('mouseenter', () => it.el.classList.add('is-hl'));
+        bar.addEventListener('mouseleave', () => it.el.classList.remove('is-hl'));
+        bar.addEventListener('click', () => it.el.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+        it.el.addEventListener('mouseenter', () => bar.classList.add('is-hl'));
+        it.el.addEventListener('mouseleave', () => bar.classList.remove('is-hl'));
+        chart.appendChild(bar);
+      });
+    })();
+  </script>
 </body>
 </html>

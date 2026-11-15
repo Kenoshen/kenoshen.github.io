@@ -210,6 +210,30 @@ footer { padding: 32px 0; text-align: center; color: var(--muted); font-size: 13
 .next .cta { justify-content: center; }
 .next .section-sub { margin-left: auto; margin-right: auto; }
 
+/* Experience layout: job list plus a proportional time chart on the right */
+.exp-layout { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 28px; }
+.tl-chart { --axis: 44px; --lane-w: 12px; --lane-gap: 8px; position: relative; width: calc(var(--axis) + var(--lanes, 2) * (var(--lane-w) + var(--lane-gap))); }
+.tl-chart::before { content: ""; position: absolute; top: 0; bottom: 0; left: calc(var(--axis) - 8px); width: 1px; background: var(--border); }
+.tl-tick {
+  position: absolute; left: 0; width: calc(var(--axis) - 14px); transform: translateY(50%);
+  font-family: "JetBrains Mono", monospace; font-size: 11px; line-height: 1; color: var(--muted); text-align: right;
+}
+.tl-tick::after { content: ""; position: absolute; top: 50%; right: -10px; width: 5px; height: 1px; background: var(--border); }
+.tl-bar {
+  position: absolute; left: calc(var(--axis) + var(--lane) * (var(--lane-w) + var(--lane-gap)));
+  width: var(--lane-w); min-height: 6px; border-radius: 999px; background: currentColor;
+  cursor: pointer; transition: opacity .15s, box-shadow .15s;
+}
+.tl-bar.current { border-top-left-radius: 2px; border-top-right-radius: 2px; }
+.tl-chart:hover .tl-bar { opacity: .35; }
+.tl-chart .tl-bar:hover, .tl-chart .tl-bar.is-hl { opacity: 1; box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 35%, transparent); }
+.job.is-hl .job-card { border-color: var(--c); box-shadow: 0 0 0 1px var(--c); }
+.job-card { transition: border-color .15s, box-shadow .15s; }
+@media (max-width: 640px) {
+  .exp-layout { grid-template-columns: 1fr; }
+  .tl-chart { display: none; }
+}
+
 /* Experience timeline */
 .timeline { list-style: none; margin: 0; padding: 0; position: relative; display: grid; gap: 24px; }
 .timeline::before { content: ""; position: absolute; left: 9px; top: 60px; bottom: 60px; width: 2px; background: var(--border); }
