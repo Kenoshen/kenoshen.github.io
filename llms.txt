@@ -1,12 +1,22 @@
 # Michael Wingfield
 
-> Senior software developer in Colorado. I build backend systems in Go, and I ship the desktop, iOS, and Android apps that run on them. ClickHouse Certified Developer. Open to senior backend and platform roles.
+> Senior software engineer in Colorado. I build backend systems in Go, and I ship the desktop, iOS, and Android apps that run on them. ClickHouse Certified Developer. Open to senior backend and platform roles.
 
 - Email: mwingfie@gmail.com
 - LinkedIn: https://www.linkedin.com/in/michaelwingfield
 - GitHub: https://github.com/Kenoshen
 - Portfolio: https://kenoshen.github.io/
 - Location: Colorado, USA
+
+## At a glance
+
+- Current role: Senior Software Engineer at Todyl, since February 2026
+- Professional experience: 15+ years, since 2011
+- Primary language: Go
+- Leadership: led the QR Code product team at Bitly, one of its three flagship product teams; founder and sole engineer of BlindsPortal
+- Education: Bachelor of Innovation, Game Design and Development, University of Colorado Colorado Springs, 2012
+- Certification: ClickHouse Certified Developer
+- Looking for: senior backend and platform engineering roles
 
 ## Summary
 
@@ -31,13 +41,13 @@
 
 ## Skills
 
-- Languages: Go, SQL and PL/pgSQL, TypeScript, JavaScript, Swift, Kotlin, Dart
-- Backend and APIs: Go net/http, GraphQL (gqlgen), REST, OpenAPI, event-driven architecture, pub/sub, background and scheduled jobs, auth and sessions, multi-tenancy
-- Data: PostgreSQL (row-level security, triggers, advisory locks, pg_cron, pgTAP), ClickHouse, MongoDB, Supabase
+- Languages: Go, SQL, TypeScript, JavaScript, Swift, Kotlin, Dart
+- Backend and APIs: Go net/http, gRPC and Protocol Buffers, GraphQL (gqlgen), REST, OpenAPI, event-driven architecture, pub/sub, background and scheduled jobs, auth and sessions, multi-tenancy
+- Data: ClickHouse (certified), PostgreSQL, MySQL, MongoDB, Supabase
 - Distributed systems: offline-first sync, outbox pattern, idempotency keys, retry with exponential backoff, eventual consistency, conflict resolution
 - Web: HTMX, Templ, server-rendered Go, Server-Sent Events, Content Security Policy
 - Apps: SwiftUI, React Native, Expo, React, Electron, Flutter, HTMX
-- Infrastructure: Docker, Terraform, GCP (Cloud Run, Cloud SQL), AWS, GitHub Actions CI/CD, TestFlight and App Store release automation
+- Infrastructure: Docker, Kubernetes, Terraform, GCP (Cloud Run, Cloud SQL), AWS, GitHub Actions CI/CD, TestFlight and App Store release automation
 - Integrations: Home Depot API, Stripe subscriptions, Twilio, Mailgun
 - Testing: pgTAP, XCTest, XCUITest
 
